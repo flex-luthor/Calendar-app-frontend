@@ -5,7 +5,8 @@ import { storiesOf } from "@storybook/react-native";
 import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
-import Button from "./Button";
+import Button from "../../components/Button";
+import TextField from "../../components/TextField";
 import CenterView from "./CenterView";
 // import Welcome from "./Welcome";
 import App from "./App";
@@ -16,13 +17,26 @@ import App from "./App";
 
 storiesOf("Button", module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add("with text", () => (
-    <Button onPress={action("clicked-text")}>Button</Button>
+  .add("Primary", () => (
+    <Button onPress={() => alert("Button Pressed")} type="primary">Button</Button>
   ))
-  .add("with some emoji", () => (
-    <Button onPress={action("clicked-emoji")}>
-      <Text>😀 😎 👍 💯</Text>
-    </Button>
-  ));
+  .add("Secondary", () => (
+    <Button onPress={() => alert("Button Pressed")} type="secondary">Button</Button>
+  ))
+  .add("Disabled", () => (
+    <Button onPress={() => alert("Button Pressed")} type="disabled">Button</Button>
+  ))
+  ;
+
+storiesOf("Text Field", module)
+.addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
+.add("Active", () => (
+  // <Button onPress={() => alert("Button Pressed")} type="disabled">Button</Button>
+  <TextField/>
+))
+.add("Inactive", () => (
+  // <Button onPress={() => alert("Button Pressed")} type="disabled">Button</Button>
+  <TextField label="Inactive" disabled/>
+));
 
 storiesOf("App", module).add("Home", () => <App />);

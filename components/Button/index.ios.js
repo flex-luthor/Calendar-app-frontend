@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   TouchableNativeFeedback,
   View,
@@ -7,7 +7,6 @@ import {
   Text,
   Platform,
 } from "react-native";
-import style from "../CenterView/style";
 
 const styles = StyleSheet.create({
   buttonContainer: {
@@ -39,20 +38,14 @@ const styles = StyleSheet.create({
 export default function Button({ onPress, children }) {
   return (
     <View style={styles.buttonContainer}>
-      <TouchableNativeFeedback
-        onPress={onPress}
-        background={
-          Platform.Version >= 21
-            ? TouchableNativeFeedback.Ripple("rgb(0, 0, 0, 0.2)", true)
-            : TouchableNativeFeedback.SelectableBackground()
-        }
-      >
-        <View style={styles.button}>
+    <TouchableHighlight onPress={onPress} style={styles.buttonContainer}>
+      <View style={styles.button}>
           <Text style={styles.buttonText}>{children}</Text>
         </View>
-      </TouchableNativeFeedback>
+    </TouchableHighlight>
     </View>
-  );
+  
+    );
 }
 
 Button.defaultProps = {

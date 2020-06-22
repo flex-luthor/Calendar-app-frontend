@@ -10,15 +10,20 @@ import StoryBook from "./storybook";
 import { setCustomText } from "react-native-global-props";
 
 const Stack = createStackNavigator();
+
+
+
+
 const customTextProps = {
   style: {
     fontSize: 16,
-    fontFamily: "Poppins",
+    fontFamily: "",
   },
 };
 
 setCustomText(customTextProps);
 
 export default function App(props) {
+  
   return <StoryBook />;
 }
