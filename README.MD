@@ -42,4 +42,6 @@ Make sure your emulator is running or your device is connected
 
 3. In the Expo Interface opened in the browser, choose Run on Device/ Simulator.
 
+___
+
 
