@@ -1,4 +1,4 @@
-# Command
+# Calendar App
 
 Table of contents: 
 
