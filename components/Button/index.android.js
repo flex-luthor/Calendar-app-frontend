@@ -6,90 +6,95 @@ import {
   StyleSheet,
   Text,
   Platform,
+  Image
 } from "react-native";
+import google from '../../assets/images/google.png'
+import mail from '../../assets/images/mail.png'
 
-const stylesPrimary = StyleSheet.create({
+const stylesButton = StyleSheet.create({
   buttonContainer: {
     alignSelf: "stretch",
     alignItems: "center",
-    backgroundColor: "#FE6E00",
     borderRadius: 10,
-    margin: 15,
+    margin: 25,
     padding: 10,
-    shadowColor: "#FE6E00",
     shadowOffset: {
       width: 0,
       height: 3,
-    },
-    shadowRadius: 10,
-    shadowOpacity: 0.25,
+    }
+  },
+  button: {
+    alignSelf: "stretch",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row"
+  },
+  buttonText: {
+    fontSize: 20,
+  },
+  smallIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 10
+   }
+})
+
+const stylesPrimary = StyleSheet.create({
+  buttonContainer: {
+    backgroundColor: "#FE6E00",
+    shadowColor: "#FE6E00",
   },
   button: {
     alignSelf: "stretch",
     alignItems: "center",
   },
   buttonText: {
-    textTransform: "uppercase",
     color: "white",
-    fontSize: 18,
   },
 });
 
 const stylesSecondary = StyleSheet.create({
   buttonContainer: {
-    alignSelf: "stretch",
-    alignItems: "center",
     backgroundColor: "transparent",
-    borderRadius: 10,
     borderWidth: 2,
     borderColor: "#FE6E00",
-    margin: 15,
-    padding: 10,
     shadowColor: "#FE6E00",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowRadius: 10,
-    shadowOpacity: 0.25,
-  },
-  button: {
-    alignSelf: "stretch",
-    alignItems: "center",
   },
   buttonText: {
-    textTransform: "uppercase",
     color: "#FE6E00",
-    fontSize: 18,
   },
 });
 
 const stylesDisabled = StyleSheet.create({
   buttonContainer: {
-    alignSelf: "stretch",
-    alignItems: "center",
     backgroundColor: "#8EA0B6",
-    borderRadius: 10,
-    margin: 15,
-    padding: 10,
     shadowColor: "#8EA0B6",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowRadius: 10,
-    shadowOpacity: 0.25,
-  },
-  button: {
-    alignSelf: "stretch",
-    alignItems: "center",
   },
   buttonText: {
-    textTransform: "uppercase",
-    color: "#C8D2E3",
-    fontSize: 18,
+    color: "#C8D2E3"
   },
 });
+
+const stylesWhite = StyleSheet.create({
+  buttonContainer: {
+    backgroundColor: "#fff",
+    shadowColor: "#fff",
+  },
+  buttonText: {
+    color: "#222"
+  },
+});
+
+const icons = (icon) => {
+  switch (icon) {
+    case 'google':
+      return google
+    case 'mail':
+      return mail
+    default:
+      return null
+  }
+}
 
 const styleSelector = type => {
   switch (type) {
@@ -99,17 +104,19 @@ const styleSelector = type => {
       return stylesSecondary;
     case 'disabled':
       return stylesDisabled;
+    case 'white' :
+      return stylesWhite;
     default:
       return stylesPrimary;
   }
 };
 
-export default function Button({ onPress, type, children }) {
+export default function Button({ onPress, type, icon, children }) {
 
   const styles = styleSelector(type);
 
   return (
-    <View style={styles.buttonContainer}>
+    <View style={{...styles.buttonContainer, ...stylesButton.buttonContainer}}>
       <TouchableNativeFeedback
         onPress={onPress}
         background={
@@ -118,8 +125,9 @@ export default function Button({ onPress, type, children }) {
             : TouchableNativeFeedback.SelectableBackground()
         }
       >
-        <View style={styles.button}>
-          <Text style={styles.buttonText}>{children}</Text>
+        <View style={{...styles.button, ...stylesButton.button}}>
+        {icon?<Image style={stylesButton.smallIcon} source={icons(icon)} />:null} 
+          <Text style={{...styles.buttonText, ...stylesButton.buttonText}}>{children}</Text>
         </View>
       </TouchableNativeFeedback>
     </View>
