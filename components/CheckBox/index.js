@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 export default function CheckBoxComponent({state, onPress, children}){
   return (
     <View style={styles.item} >
-    <CheckBox checked={true} checkedColor="#FE6E00" onPress={onPress} title="I agree to everything." containerStyle={styles.checkbox} textStyle={styles.checkboxText}/>
+    <CheckBox checked={state} checkedColor="#FE6E00" onPress={onPress} title="I agree to everything." containerStyle={styles.checkbox} textStyle={styles.checkboxText}/>
     </View>
   )
 

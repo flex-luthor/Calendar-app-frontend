@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Text } from "react-native";
 
 import { storiesOf } from "@storybook/react-native";
@@ -55,7 +55,7 @@ storiesOf("Image", module)
 storiesOf("Checkbox", module)
 .addDecorator((getStory => <CenterView>{getStory()}</CenterView>))
 .add("Default", () => (
-  <CheckBox />
+  <CheckBox state={true}/>
 ))
 
 storiesOf("App", module).add("Home", () => <App />);

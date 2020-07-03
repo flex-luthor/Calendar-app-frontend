@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {OutlinedTextField} from 'react-native-material-textfield';
-import {Text, View, StyleSheet} from 'react-native'
+import {Text, View, StyleSheet} from 'react-native';
 
 const formatText = (text) => {
     return text.replace(/[^+\d]/g, '');
