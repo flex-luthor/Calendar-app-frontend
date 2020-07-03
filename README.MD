@@ -26,7 +26,7 @@ Install expo cli globally using:
 There are two ways to run the app in development mode:
 
 1. [On your Android/IOS Device](https://docs.expo.io/guides/testing-on-devices/)
-2. [On Android/IOS Emulator](https://docs.expo.io/workflow/android-studio-emulator/)
+2. [On an Android/IOS Emulator](https://docs.expo.io/workflow/android-studio-emulator/)
 ---
 
 ## How to Run
