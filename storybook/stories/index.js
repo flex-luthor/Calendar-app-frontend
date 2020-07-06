@@ -14,6 +14,8 @@ import CenterView from "./CenterView";
 // import Welcome from "./Welcome";
 import App from "./App";
 import placeholder from "../../assets/images/placeholder.png";
+import OnBoarding from "../../screens/OnBoarding";
+import SignUp from "../../screens/SignUp";
 
 // storiesOf("Welcome", module).add("to Storybook", () => (
 //   <Welcome showApp={linkTo("Button")} />
@@ -58,4 +60,11 @@ storiesOf("Checkbox", module)
   <CheckBox state={true}/>
 ))
 
+storiesOf("Views", module)
+.add("On Boarding", () => (
+  <OnBoarding />
+))
+.add("Sign Up", () => (
+  <SignUp />
+))
 storiesOf("App", module).add("Home", () => <App />);

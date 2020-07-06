@@ -3,8 +3,8 @@ import { Image, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     banner: {
-      width: 300,
-      height: 300
+      width: 200,
+      height: 200
     },
   });
 

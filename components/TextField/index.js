@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     textFieldContainer: {
       alignSelf: "stretch",
       alignItems: "stretch",
-      margin: 15,
-      padding: 10,
+      marginHorizontal: 20,
+      padding: 5,
       shadowColor: "#8EA0B6",
       shadowOffset: {
         width: 0,

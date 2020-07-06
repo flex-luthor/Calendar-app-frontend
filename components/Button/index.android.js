@@ -15,8 +15,10 @@ const stylesButton = StyleSheet.create({
   buttonContainer: {
     alignSelf: "stretch",
     alignItems: "center",
+    minWidth: 100,
     borderRadius: 10,
-    margin: 25,
+    margin: 10,
+    marginHorizontal: 25,
     padding: 10,
     shadowOffset: {
       width: 0,
@@ -35,7 +37,7 @@ const stylesButton = StyleSheet.create({
   smallIcon: {
     width: 20,
     height: 20,
-    marginRight: 10
+    marginRight: 0
    }
 })
 
@@ -77,10 +79,11 @@ const stylesDisabled = StyleSheet.create({
 
 const stylesWhite = StyleSheet.create({
   buttonContainer: {
-    backgroundColor: "#fff",
-    shadowColor: "#fff",
+    backgroundColor: "#eee",
+    shadowColor: "#eee",
   },
   buttonText: {
+    marginLeft: 10,
     color: "#222"
   },
 });
@@ -89,7 +92,7 @@ const icons = (icon) => {
   switch (icon) {
     case 'google':
       return google
-    case 'mail':
+    case 'email':
       return mail
     default:
       return null
@@ -126,8 +129,8 @@ export default function Button({ onPress, type, icon, children }) {
         }
       >
         <View style={{...styles.button, ...stylesButton.button}}>
-        {icon?<Image style={stylesButton.smallIcon} source={icons(icon)} />:null} 
-          <Text style={{...styles.buttonText, ...stylesButton.buttonText}}>{children}</Text>
+        {icon?(<Image style={stylesButton.smallIcon} source={icons(icon)} />):null}
+        {children?<Text style={{...styles.buttonText, ...stylesButton.buttonText}}>{children}</Text>:null}
         </View>
       </TouchableNativeFeedback>
     </View>

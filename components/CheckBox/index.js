@@ -5,26 +5,22 @@ import style from '../../storybook/stories/CenterView/style';
 
 const styles = StyleSheet.create({
     item:{
-        padding:10,
-        marginBottom:10,
         flexDirection:"row",
-      },
-      checkBoxTxt:{
-        marginLeft:20
+        width: "90%"
       },
     checkbox: {
       backgroundColor: 'transparent',
       borderWidth: 0,
     },
     checkboxText: {
-      color: '#fff'
+      color: '#fff',
     }
   });
 
 export default function CheckBoxComponent({state, onPress, children}){
   return (
     <View style={styles.item} >
-    <CheckBox checked={state} checkedColor="#FE6E00" onPress={onPress} title="I agree to everything." containerStyle={styles.checkbox} textStyle={styles.checkboxText}/>
+    <CheckBox checked={state} checkedColor="#FE6E00" onPress={onPress} title="Agree to all T&C" containerStyle={styles.checkbox} textStyle={styles.checkboxText}/>
     </View>
   )
 
