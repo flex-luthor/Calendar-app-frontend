@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Text } from "react-native";
 
 import { storiesOf } from "@storybook/react-native";
@@ -8,7 +8,7 @@ import { linkTo } from "@storybook/addon-links";
 import Button from "../../components/Button";
 import TextField from "../../components/TextField";
 import BannerImage from "../../components/BannerImage";
-import CheckBox from '../../components/CheckBox'
+import CheckBox from "../../components/CheckBox";
 
 import CenterView from "./CenterView";
 // import Welcome from "./Welcome";
@@ -16,6 +16,7 @@ import App from "./App";
 import placeholder from "../../assets/images/placeholder.png";
 import OnBoarding from "../../screens/OnBoarding";
 import SignUp from "../../screens/SignUp";
+import SignIn from "../../screens/SignIn";
 
 // storiesOf("Welcome", module).add("to Storybook", () => (
 //   <Welcome showApp={linkTo("Button")} />
@@ -24,47 +25,48 @@ import SignUp from "../../screens/SignUp";
 storiesOf("Button", module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .add("Primary", () => (
-    <Button onPress={() => alert("Button Pressed")} type="primary">Button</Button>
+    <Button onPress={() => alert("Button Pressed")} type="primary">
+      Button
+    </Button>
   ))
   .add("Secondary", () => (
-    <Button onPress={() => alert("Button Pressed")} type="secondary">Button</Button>
+    <Button onPress={() => alert("Button Pressed")} type="secondary">
+      Button
+    </Button>
   ))
   .add("Disabled", () => (
-    <Button onPress={() => alert("Button Pressed")} type="disabled">Button</Button>
+    <Button onPress={() => alert("Button Pressed")} type="disabled">
+      Button
+    </Button>
   ))
   .add("Sign Up", () => (
-    <Button onPress={() => alert("Button Pressed")} type="white" icon="google">Join with google</Button>
-  ))
-  ;
+    <Button onPress={() => alert("Button Pressed")} type="white" icon="google">
+      Join with google
+    </Button>
+  ));
 
 storiesOf("Text Field", module)
-.addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-.add("Active", () => (
-  // <Button onPress={() => alert("Button Pressed")} type="disabled">Button</Button>
-  <TextField/>
-))
-.add("Inactive", () => (
-  // <Button onPress={() => alert("Button Pressed")} type="disabled">Button</Button>
-  <TextField label="Inactive" disabled/>
-));
+  .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
+  .add("Active", () => (
+    // <Button onPress={() => alert("Button Pressed")} type="disabled">Button</Button>
+    <TextField />
+  ))
+  .add("Inactive", () => (
+    // <Button onPress={() => alert("Button Pressed")} type="disabled">Button</Button>
+    <TextField label="Inactive" disabled />
+  ));
 
 storiesOf("Image", module)
-.addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-.add("Banner", () => (
-  <BannerImage source={placeholder} />
-))
+  .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
+  .add("Banner", () => <BannerImage source={placeholder} />);
 
 storiesOf("Checkbox", module)
-.addDecorator((getStory => <CenterView>{getStory()}</CenterView>))
-.add("Default", () => (
-  <CheckBox state={true}/>
-))
+  .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
+  .add("Default", () => <CheckBox state={true} />);
 
 storiesOf("Views", module)
-.add("On Boarding", () => (
-  <OnBoarding />
-))
-.add("Sign Up", () => (
-  <SignUp />
-))
+  .add("On Boarding", () => <OnBoarding />)
+  .add("Sign Up", () => <SignUp />)
+  .add("Sign In", () => <SignIn />);
+
 storiesOf("App", module).add("Home", () => <App />);

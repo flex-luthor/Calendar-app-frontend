@@ -6,10 +6,10 @@ import {
   StyleSheet,
   Text,
   Platform,
-  Image
+  Image,
 } from "react-native";
-import google from '../../assets/images/google.png'
-import mail from '../../assets/images/mail.png'
+import google from "../../assets/images/google.png";
+import mail from "../../assets/images/mail.png";
 
 const stylesButton = StyleSheet.create({
   buttonContainer: {
@@ -23,13 +23,13 @@ const stylesButton = StyleSheet.create({
     shadowOffset: {
       width: 0,
       height: 3,
-    }
+    },
   },
   button: {
     alignSelf: "stretch",
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   buttonText: {
     fontSize: 20,
@@ -37,9 +37,9 @@ const stylesButton = StyleSheet.create({
   smallIcon: {
     width: 20,
     height: 20,
-    marginRight: 0
-   }
-})
+    marginRight: 0,
+  },
+});
 
 const stylesPrimary = StyleSheet.create({
   buttonContainer: {
@@ -73,7 +73,7 @@ const stylesDisabled = StyleSheet.create({
     shadowColor: "#8EA0B6",
   },
   buttonText: {
-    color: "#C8D2E3"
+    color: "#C8D2E3",
   },
 });
 
@@ -84,30 +84,30 @@ const stylesWhite = StyleSheet.create({
   },
   buttonText: {
     marginLeft: 10,
-    color: "#222"
+    color: "#222",
   },
 });
 
 const icons = (icon) => {
   switch (icon) {
-    case 'google':
-      return google
-    case 'email':
-      return mail
+    case "google":
+      return google;
+    case "email":
+      return mail;
     default:
-      return null
+      return null;
   }
-}
+};
 
-const styleSelector = type => {
+const styleSelector = (type) => {
   switch (type) {
-    case 'primary':
+    case "primary":
       return stylesPrimary;
-    case 'secondary': 
+    case "secondary":
       return stylesSecondary;
-    case 'disabled':
+    case "disabled":
       return stylesDisabled;
-    case 'white' :
+    case "white":
       return stylesWhite;
     default:
       return stylesPrimary;
@@ -115,11 +115,12 @@ const styleSelector = type => {
 };
 
 export default function Button({ onPress, type, icon, children }) {
-
   const styles = styleSelector(type);
 
   return (
-    <View style={{...styles.buttonContainer, ...stylesButton.buttonContainer}}>
+    <View
+      style={{ ...styles.buttonContainer, ...stylesButton.buttonContainer }}
+    >
       <TouchableNativeFeedback
         onPress={onPress}
         background={
@@ -128,9 +129,15 @@ export default function Button({ onPress, type, icon, children }) {
             : TouchableNativeFeedback.SelectableBackground()
         }
       >
-        <View style={{...styles.button, ...stylesButton.button}}>
-        {icon?(<Image style={stylesButton.smallIcon} source={icons(icon)} />):null}
-        {children?<Text style={{...styles.buttonText, ...stylesButton.buttonText}}>{children}</Text>:null}
+        <View style={{ ...styles.button, ...stylesButton.button }}>
+          {icon ? (
+            <Image style={stylesButton.smallIcon} source={icons(icon)} />
+          ) : null}
+          {children ? (
+            <Text style={{ ...styles.buttonText, ...stylesButton.buttonText }}>
+              {children}
+            </Text>
+          ) : null}
         </View>
       </TouchableNativeFeedback>
     </View>

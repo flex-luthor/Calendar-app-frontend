@@ -11,9 +11,6 @@ import { setCustomText } from "react-native-global-props";
 
 const Stack = createStackNavigator();
 
-
-
-
 const customTextProps = {
   style: {
     fontSize: 16,
@@ -24,6 +21,5 @@ const customTextProps = {
 setCustomText(customTextProps);
 
 export default function App(props) {
-  
   return <StoryBook />;
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import {
   TouchableNativeFeedback,
   View,
@@ -38,14 +38,13 @@ const styles = StyleSheet.create({
 export default function Button({ onPress, children }) {
   return (
     <View style={styles.buttonContainer}>
-    <TouchableHighlight onPress={onPress} style={styles.buttonContainer}>
-      <View style={styles.button}>
+      <TouchableHighlight onPress={onPress} style={styles.buttonContainer}>
+        <View style={styles.button}>
           <Text style={styles.buttonText}>{children}</Text>
         </View>
-    </TouchableHighlight>
+      </TouchableHighlight>
     </View>
-  
-    );
+  );
 }
 
 Button.defaultProps = {
